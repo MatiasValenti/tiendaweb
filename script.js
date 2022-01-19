@@ -96,6 +96,8 @@ var productos = [
     },
     ];
 
+    var carrito = [];
+
     var productShow = document.getElementById('productShow'),
     containerProducts = document.getElementById('container-products')
     
@@ -143,6 +145,13 @@ var productos = [
         cardButton.classList.add('btn');
         cardButton.classList.add('btn-primary');
         cardButton.href = '#';
+        cardButton.id = i;
+        cardButton.onclick = () => {
+            console.log(cardButton.id)
+            cardButton.classList.add('Disabled')
+            carrito.push(cardButton.id);
+            console.log(carrito)
+        }
         let cardButtonText = document.createTextNode('Agregar al carrito');
         cardButton.appendChild(cardButtonText);
         cardBody.appendChild(cardButton);
