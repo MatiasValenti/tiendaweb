@@ -1,96 +1,96 @@
 var productos = [
     {
-    nombre: "harina",
+    nombre: "Harina",
     img: './img/products/harina.jpg',
     precio: 35
     },
     {
-    nombre: "pan",
+    nombre: "Pan",
     img: './img/products/pan.jpg',
     precio: 25
     },
     {
-    nombre: "papa",
-    img: './img/products/papa.jpg',
+    nombre: "Papa",
+    img: './img/products/palta.jpg',
     precio: 52
     },
     {
-    nombre: "palta",
+    nombre: "Palta",
     img: './img/products/palta.jpg',
     precio: 55
     },
     {
-    nombre: "fideos",
+    nombre: "Fideos",
     img: './img/products/fideos.jpg',
     precio: 85
     },
     {
-    nombre: "aceite",
+    nombre: "Aceite",
     img: './img/products/aceite.jpg',
     precio: 350
     },
     {
-    nombre: "sopa",
+    nombre: "Sopa",
     img: './img/products/sopa.jpg',
     precio: 86
     },
     {
-    nombre: "mermelada",
+    nombre: "Mermelada",
     img: './img/products/mermelada.jpg',
     precio: 108
     },
     {
-    nombre: "porotos",
+    nombre: "Porotos",
     img: './img/products/porotos.jpg',
     precio: 69
     },
     {
-    nombre: "lentejas",
+    nombre: "Lentejas",
     img: './img/products/porotos.jpg',
     precio: 85
     },
     {
-    nombre: "mandarina",
+    nombre: "Mandarina",
     img: './img/products/mandarina.jpg',
     precio: 43
     },
     {
-    nombre: "banana",
+    nombre: "Banana",
     img: './img/products/banana.jpg',
     precio: 79
     },
     {
-    nombre: "leche de almendras",
+    nombre: "Leche de almendras",
     img: './img/products/leche-almendras.jpg',
     precio: 145
     },
     {
-    nombre: "papel higiénico",
+    nombre: "Papel higiénico",
     img: './img/products/papel-h.jpg',
     precio: 147
     },
     {
-    nombre: "lavandina",
+    nombre: "Lavandina",
     img: './img/products/lavandina.jpg',
     precio: 55
     },
     {
-    nombre: "alcohol en gel",
+    nombre: "Alcohol en gel",
     img: './img/products/alcohol-gel.jpg',
     precio: 123
     },
     {
-    nombre: "shampoo",
+    nombre: "Shampoo",
     img: './img/products/shampoo.jpg',
     precio: 400
     },
     {
-    nombre: "arroz",
+    nombre: "Arroz",
     img: './img/products/arroz.jpg',
     precio: 66
     },
     {
-    nombre: "salsa de tomate",
+    nombre: "Salsa de tomate",
     img: './img/products/salsa-tomate.jpg',
     precio: 35
     },
@@ -108,7 +108,7 @@ var productos = [
         ///CREO EL ELEMENTO PARA LAS TARJETAS
         let productCard = document.createElement('div');
         productCard.classList.add('cards');
-        productCard.style = 'width: 150px;';
+        
 
         ///ELEMENTO HIJO DE CARD (IMG)
         let productImg = document.createElement('img');
@@ -136,7 +136,7 @@ var productos = [
         ///ELEMENTOS HIJOS DE CARD BODY (P/precio)
         let cardPrice = document.createElement('p')
         cardPrice.classList.add('card-text')
-        let cardPriceText = document.createTextNode(productos[i].precio)
+        let cardPriceText = document.createTextNode('$' + productos[i].precio)
         cardPrice.appendChild(cardPriceText);
         cardBody.appendChild(cardPrice);
 
@@ -147,8 +147,8 @@ var productos = [
         cardButton.href = '#';
         cardButton.id = i;
         cardButton.onclick = () => {
-            console.log(cardButton.id)
-            cardButton.classList.add('Disabled')
+            
+            cardButton.classList.add('disabled')
             carrito.push(cardButton.id);
             console.log(carrito)
         }

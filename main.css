@@ -8,6 +8,10 @@
     background-image: url('./img/Banner.png');
     height: 100vh;
     background-size: cover;
+    display: flex;
+    overflow: auto;
+    align-items: center;
+    
 }
 
 nav {
@@ -25,17 +29,19 @@ nav {
 
 .container-products {
     background-color: rgba(216, 207, 207, 0.356);
-    width: 75vw;
-    height: 65vh;
+    width: 90%;
+    height: 70%;
     position: fixed;
-    margin: 22vh 12vw;
+    margin-top: 15vh;
+    margin-left: 5%;
     align-items: center;
-    justify-content: center;
+    padding: 2em;
+    overflow-y: hidden !important;
     border-radius: 5px;
     visibility: hidden;
     display: inline-flex;
     overflow: auto;
-   
+    transition: 2s ease all;
 }
 
 .container-products.active {
@@ -46,17 +52,25 @@ nav {
 
 .cards{
     background-color: #c5c4c49a;
-    margin: 10px;
-    height: 70%;
-    padding: 1em;
+    margin: 9px 10px 10px 10px;
+    height: 100%;
+    padding: .5em;
     align-items: center ;
     justify-content: center;
     display: inline;
     border-radius: 5px;
+    
 }
 
+
+
 .cards-img-height {
-    height: 7em !important;
+    height: 9em !important;
+    width: 13vw;
+}
+
+.card-title{
+    font-size: 1.5em;
 }
 
 .container-products::-webkit-scrollbar {
