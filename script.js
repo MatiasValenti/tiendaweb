@@ -99,7 +99,8 @@ var productos = [
     var carrito = [];
 
     var productShow = document.getElementById('productShow'),
-    containerProducts = document.getElementById('container-products')
+    containerProducts = document.getElementById('container-products'),
+    cartShow = document.getElementById('cartShow')
     
 
     /// ITERAR PRODUCTOS
@@ -160,7 +161,7 @@ var productos = [
         containerProducts.appendChild(productCard)
         }
 
-
+ /// MOSTRAR PRODUCTOS
     productShow.addEventListener('click', (event) => {
         event.preventDefault();
 
@@ -173,3 +174,49 @@ var productos = [
        
         
     })
+
+      
+    ///FALTA FUNCIONALIDADES DEL CARRITO Y BOTON FINALIZAR COMPRA
+    /// Y MEJORAR LAS FUNCIONALIDADES
+
+    /// MOSTRAR CARRITO
+
+    var overlayCart = document.getElementById('overlay-cart'),
+    cartTableBody = document.getElementById('cart-table-body')
+
+    cartShow.addEventListener('click', (event) => {
+        event.preventDefault();
+        overlayCart.classList.add('active')
+
+
+            //ITERAR CARRITO
+
+    for(i = 0; i < carrito.length; i++){
+        
+        var finder = carrito[i];
+        let trCart = document.createElement('tr');
+        let thCart = document.createElement('th');
+        let thCart1Txt = document.createTextNode(i);
+        thCart.appendChild(thCart1Txt);
+        trCart.appendChild(thCart);
+
+
+        let tdCart2 = document.createElement('td')
+        let tdCart2Txt = document.createTextNode(productos[finder].nombre);
+        tdCart2.appendChild(tdCart2Txt);
+        trCart.appendChild(tdCart2);
+
+        let tdCart3 = document.createElement('td')
+        let tdCart3Txt = document.createTextNode(productos[finder].precio);
+        tdCart3.appendChild(tdCart3Txt);
+        trCart.appendChild(tdCart3);
+
+        let tdCart4 = document.createElement('button');
+        trCart.appendChild(tdCart4);
+
+        cartTableBody.appendChild(trCart);
+        
+    }
+    })
+
+
