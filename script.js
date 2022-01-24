@@ -182,12 +182,15 @@ var productos = [
     /// MOSTRAR CARRITO
 
     var overlayCart = document.getElementById('overlay-cart'),
-    cartTableBody = document.getElementById('cart-table-body')
+    cartTableBody = document.getElementById('cart-table-body'),
+    btnCloseCart = document.getElementById('btn-close-popup-cart')
 
     cartShow.addEventListener('click', (event) => {
         event.preventDefault();
         overlayCart.classList.add('active')
-
+        btnCloseCart.addEventListener('click', () => {
+            overlayCart.classList.remove('active');
+        })
 
             //ITERAR CARRITO
 
@@ -200,7 +203,6 @@ var productos = [
         thCart.appendChild(thCart1Txt);
         trCart.appendChild(thCart);
 
-
         let tdCart2 = document.createElement('td')
         let tdCart2Txt = document.createTextNode(productos[finder].nombre);
         tdCart2.appendChild(tdCart2Txt);
@@ -212,6 +214,7 @@ var productos = [
         trCart.appendChild(tdCart3);
 
         let tdCart4 = document.createElement('button');
+        tdCart4.addEventListener('click', () => {alert('clickeo')})
         trCart.appendChild(tdCart4);
 
         cartTableBody.appendChild(trCart);
