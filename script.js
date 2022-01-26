@@ -98,10 +98,22 @@ var productos = [
 
     var carrito = [];
 
+    //CAMBIO DE PAGINA
+    var homeShow = document.getElementById('home'),
+    aboutShow = document.getElementById('aboutShow')
+
+
+    // VARIABLES PARA LA TIENDA
     var productShow = document.getElementById('productShow'),
     containerProducts = document.getElementById('container-products'),
     cartShow = document.getElementById('cartShow')
-    
+
+
+    //VARIABLES PARA CARRITO
+    var overlayCart = document.getElementById('overlay-cart'),
+    cartTableBody = document.getElementById('cart-table-body'),
+    btnCloseCart = document.getElementById('btn-close-popup-cart'),
+    btnTotal = document.getElementById('calcular-total')
 
     /// ITERAR PRODUCTOS
     for(i = 0; i < productos.length; i++){
@@ -165,6 +177,9 @@ var productos = [
     productShow.addEventListener('click', (event) => {
         event.preventDefault();
 
+    ///NECESITO MODIFICAR EL ACTIVE DEL NAV
+
+
         if(containerProducts.classList.contains('active')){
         containerProducts.classList.remove('active')}
         else{
@@ -181,9 +196,7 @@ var productos = [
 
     /// MOSTRAR CARRITO
 
-    var overlayCart = document.getElementById('overlay-cart'),
-    cartTableBody = document.getElementById('cart-table-body'),
-    btnCloseCart = document.getElementById('btn-close-popup-cart')
+    
 
     cartShow.addEventListener('click', (event) => {
         event.preventDefault();
@@ -220,6 +233,10 @@ var productos = [
         cartTableBody.appendChild(trCart);
         
     }
+
+    btnTotal.addEventListener('click', () => {
+        alert('clickeo total')
+    })
     })
 
 
