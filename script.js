@@ -201,16 +201,14 @@ var productos = [
     cartShow.addEventListener('click', (event) => {
         event.preventDefault();
         overlayCart.classList.add('active')
-        btnCloseCart.addEventListener('click', () => {
-            overlayCart.classList.remove('active');
-        })
+        
 
             //ITERAR CARRITO
 
     for(i = 0; i < carrito.length; i++){
         
         var finder = carrito[i];
-        let trCart = document.createElement('tr');
+        var trCart = document.createElement('tr');
         let thCart = document.createElement('th');
         let thCart1Txt = document.createTextNode(i);
         thCart.appendChild(thCart1Txt);
@@ -233,6 +231,17 @@ var productos = [
         cartTableBody.appendChild(trCart);
         
     }
+
+            /// BOTON CERRAR CARRITO
+            btnCloseCart.addEventListener('click', () => {
+                overlayCart.classList.remove('active');
+    
+                // Y SI CUANDO CIERRO ELIMINO LOS NODOS HIJOS?
+                while (cartTableBody.firstChild){
+                cartTableBody.removeChild(cartTableBody.firstChild);
+            }
+            })
+    
 
     btnTotal.addEventListener('click', () => {
         alert('clickeo total')
