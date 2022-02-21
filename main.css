@@ -120,7 +120,7 @@ nav {
 
 .overlay-cart.active {
     visibility: visible;
-    transition: 2s ease all;
+    
 }
 
 .popup-cart{
@@ -145,6 +145,17 @@ nav {
     background-color: rgba(129, 123, 123, 0.774);
     
   }
+  .btn-close-popup-cart {
+    font-size: 1.3em;
+    line-height: 1.3em;
+    display: block;
+    text-align: right;
+    color:#5e5e5e !important;
+    margin-bottom: 1.5vh;
+    }
+    .btn-close-popup-cart:hover {
+    color: #000 !important;
+    }
 
 
 
@@ -201,7 +212,7 @@ font-size: 1.3em;
 line-height: 1.3em;
 display: block;
 text-align: right;
-color:#BBBBBB !important;
+color:#5e5e5e !important;
 transition: .7s ease all;
 margin-bottom: 1.5vh;
 }
