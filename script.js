@@ -113,7 +113,8 @@ var productos = [
     var overlayCart = document.getElementById('overlay-cart'),
     cartTableBody = document.getElementById('cart-table-body'),
     btnCloseCart = document.getElementById('btn-close-popup-cart'),
-    btnTotal = document.getElementById('calcular-total')
+    btnTotal = document.getElementById('calcular-total'),
+    valorTotal = 0;
 
     /// ITERAR PRODUCTOS
     for(i = 0; i < productos.length; i++){
@@ -163,7 +164,6 @@ var productos = [
             
             cardButton.classList.add('disabled')
             carrito.push(cardButton.id);
-            console.log(carrito)
         }
         let cardButtonText = document.createTextNode('Agregar al carrito');
         cardButton.appendChild(cardButtonText);
@@ -196,7 +196,7 @@ var productos = [
 
     /// MOSTRAR CARRITO
 
-    
+
 
     cartShow.addEventListener('click', (event) => {
         event.preventDefault();
@@ -221,6 +221,9 @@ var productos = [
 
         let tdCart3 = document.createElement('td')
         let tdCart3Txt = document.createTextNode(productos[finder].precio);
+         /// VAMOS CALCULANDO EL VALOR TOTAL
+        valorTotal = valorTotal + productos[finder].precio
+        console.log(valorTotal)
         tdCart3.appendChild(tdCart3Txt);
         trCart.appendChild(tdCart3);
 
@@ -235,16 +238,17 @@ var productos = [
             /// BOTON CERRAR CARRITO
             btnCloseCart.addEventListener('click', () => {
                 overlayCart.classList.remove('active');
-    
+                valorTotal = 0;
+                btnTotal.innerHTML = 'Calcular total'
                 // Y SI CUANDO CIERRO ELIMINO LOS NODOS HIJOS?
                 while (cartTableBody.firstChild){
                 cartTableBody.removeChild(cartTableBody.firstChild);
             }
             })
     
-
+ //// TENGO LOS VALORES Y LOS PUEDO PROYECTAR
     btnTotal.addEventListener('click', () => {
-        alert('clickeo total')
+        btnTotal.innerHTML = valorTotal;
     })
     })
 
