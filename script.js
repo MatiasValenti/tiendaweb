@@ -191,7 +191,7 @@ var productos = [
     })
 
       
-    ///FALTA FUNCIONALIDADES DEL CARRITO Y BOTON FINALIZAR COMPRA
+    ///FALTA FUNCIONALIDADES DEL CARRITO
     /// Y MEJORAR LAS FUNCIONALIDADES
 
     /// MOSTRAR CARRITO
@@ -210,7 +210,7 @@ var productos = [
         var finder = carrito[i];
         var trCart = document.createElement('tr');
         let thCart = document.createElement('th');
-        let thCart1Txt = document.createTextNode(i);
+        let thCart1Txt = document.createTextNode(i + 1);
         thCart.appendChild(thCart1Txt);
         trCart.appendChild(thCart);
 
@@ -223,12 +223,13 @@ var productos = [
         let tdCart3Txt = document.createTextNode(productos[finder].precio);
          /// VAMOS CALCULANDO EL VALOR TOTAL
         valorTotal = valorTotal + productos[finder].precio
-        console.log(valorTotal)
         tdCart3.appendChild(tdCart3Txt);
         trCart.appendChild(tdCart3);
 
         let tdCart4 = document.createElement('button');
-        tdCart4.addEventListener('click', () => {alert('clickeo')})
+
+        /// FIJARSE COMO ELIMINAR EL ELEMENTO !!!!!!!!!!!!
+        tdCart4.addEventListener('click', () => {console.log(finder)})
         trCart.appendChild(tdCart4);
 
         cartTableBody.appendChild(trCart);
@@ -240,7 +241,7 @@ var productos = [
                 overlayCart.classList.remove('active');
                 valorTotal = 0;
                 btnTotal.innerHTML = 'Calcular total'
-                // Y SI CUANDO CIERRO ELIMINO LOS NODOS HIJOS?
+                //CIERRO Y ELIMINO LOS NODOS HIJOS?
                 while (cartTableBody.firstChild){
                 cartTableBody.removeChild(cartTableBody.firstChild);
             }
@@ -248,7 +249,7 @@ var productos = [
     
  //// TENGO LOS VALORES Y LOS PUEDO PROYECTAR
     btnTotal.addEventListener('click', () => {
-        btnTotal.innerHTML = valorTotal;
+        btnTotal.innerHTML = 'Total $ '+ valorTotal;
     })
     })
 
