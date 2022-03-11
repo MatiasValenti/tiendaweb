@@ -231,14 +231,19 @@ var productos = [
 
         let tdCart4 = document.createElement('button');
 
-        /// FIJARSE COMO ELIMINAR EL ELEMENTO !!!!!!!!!!!!
+       
         tdCart4.addEventListener('click', () => {
             let idToDelete = tdCart4.parentNode.id;
             ///Obtengo el elemento por el id asignado
             let toRemove = document.getElementById(idToDelete)
             ///Remuevo el elemento del dom
             cartTableBody.removeChild(toRemove);
-            ///Resto el elemento del valor total
+
+
+            ///RESTAR ELELEMENTO DEL VALOR TOTAL!!!!!!!
+            ///FALTA ESTA PARTE SUPER IMPORTANTE !!!!
+
+            
             let elementToRest = tdCart3.id;
             console.log(elementToRest)
             
