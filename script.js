@@ -209,6 +209,8 @@ var productos = [
         
         var finder = carrito[i];
         var trCart = document.createElement('tr');
+        ///LE AGREGO UN ID A CADA BLOQUE PARA PODER LOCALIZARLO
+        trCart.setAttribute("id", "article" + i)
         let thCart = document.createElement('th');
         let thCart1Txt = document.createTextNode(i + 1);
         thCart.appendChild(thCart1Txt);
@@ -219,9 +221,10 @@ var productos = [
         tdCart2.appendChild(tdCart2Txt);
         trCart.appendChild(tdCart2);
 
-        let tdCart3 = document.createElement('td')
+        var tdCart3 = document.createElement('td')
         let tdCart3Txt = document.createTextNode(productos[finder].precio);
          /// VAMOS CALCULANDO EL VALOR TOTAL
+        tdCart3.setAttribute("id", "valor" + i)
         valorTotal = valorTotal + productos[finder].precio
         tdCart3.appendChild(tdCart3Txt);
         trCart.appendChild(tdCart3);
@@ -229,7 +232,20 @@ var productos = [
         let tdCart4 = document.createElement('button');
 
         /// FIJARSE COMO ELIMINAR EL ELEMENTO !!!!!!!!!!!!
-        tdCart4.addEventListener('click', () => {console.log(finder)})
+        tdCart4.addEventListener('click', () => {
+            let idToDelete = tdCart4.parentNode.id;
+            ///Obtengo el elemento por el id asignado
+            let toRemove = document.getElementById(idToDelete)
+            ///Remuevo el elemento del dom
+            cartTableBody.removeChild(toRemove);
+            ///Resto el elemento del valor total
+            let elementToRest = tdCart3.id;
+            console.log(elementToRest)
+            
+            ///Remuevo el elemento del array carrito
+            carrito.splice(idToDelete, 1);
+            
+        })
         trCart.appendChild(tdCart4);
 
         cartTableBody.appendChild(trCart);
