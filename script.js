@@ -164,6 +164,7 @@ var productos = [
             
             cardButton.classList.add('disabled')
             carrito.push(cardButton.id);
+           
         }
         let cardButtonText = document.createTextNode('Agregar al carrito');
         cardButton.appendChild(cardButtonText);
@@ -231,7 +232,7 @@ var productos = [
 
         let tdCart4 = document.createElement('button');
 
-       
+       //Boton eliminar del carrito
         tdCart4.addEventListener('click', () => {
             let idToDelete = tdCart4.parentNode.id;
             ///Obtengo el elemento por el id asignado
@@ -239,16 +240,19 @@ var productos = [
             ///Remuevo el elemento del dom
             cartTableBody.removeChild(toRemove);
 
-
-            ///RESTAR ELELEMENTO DEL VALOR TOTAL!!!!!!!
-            ///FALTA ESTA PARTE SUPER IMPORTANTE !!!!
-
+            // Resto el elemento del valor total,
+            // en este caso lo tomo del html.
+            let elementToRest = tdCart4.previousElementSibling.innerHTML;
+            valorTotal = valorTotal - elementToRest;
             
-            let elementToRest = tdCart3.id;
-            console.log(elementToRest)
             
             ///Remuevo el elemento del array carrito
             carrito.splice(idToDelete, 1);
+            btnTotal.innerHTML = 'Calcular total'
+
+
+            // FALTAAAAAAAA!!!!!!!!!!!!!
+            //Volver a habilitar el 'Agregar al carrito'
             
         })
         trCart.appendChild(tdCart4);
